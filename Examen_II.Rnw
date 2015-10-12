@@ -1,0 +1,99 @@
+\documentclass[12pt,letterpaper]{article}
+ \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[ansinew]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage{multicol} 
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage{float} 
+\usepackage{verbatim} 
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\fancyhead[LO]{\leftmark}
+\usepackage{caption}
+\newtheorem{definicion}{Defincion}
+
+\begin{document}
+
+\begin{titlepage}
+\setlength{\unitlength}{1 cm} %Especificar unidad de trabajo
+
+\begin{center}
+\textbf{{\large UNIVERSIDAD DE EL SALVADOR}\\
+{\large FACULTAD MULTIDISCIPLINARIA DE OCCIDENTE}\\
+{\large DEPARTAMENTO DE MATEMATICA}}\\ [0.50 cm]
+
+\begin{picture}(18,4)
+ \put(7,0){\includegraphics[width=4cm]{minerva.jpg}}
+\end{picture}
+\\[0.25 cm]
+
+\textbf{{\large Licenciatura en Estadistica}\\[1.25cm]
+{\large Control Estadistico del Paquete R }\\[2 cm]
+%\setlength{\unitlength}{1 cm}
+{\large  \textbf{''EXAMEN PARCIAL II"}}\\[3 cm]
+{\large Alumnas:}\\
+{\large MARTHA YOANA MEDINA SANCHEZ}\\
+{\large ERIKA BEATRIZ GUILLEN PINEDA}\\[2cm]
+{\large Fecha de elaboracion}\\
+Santa Ana - \today }
+\end{center}
+\end{titlepage}
+
+\newtheorem{teorema}{Teorema}
+\newtheorem{prop}{Proposicion}[section]
+
+\lhead{Examen Parcial}
+
+\lfoot{LICENCIATURA EN ESTADISTICA}
+\cfoot{UESOCC}
+\rfoot{\thepage}
+%\pagestyle{fancy} 
+
+\setcounter{page}{1}
+\newpage
+Ejercicio # 1
+Hacer una funcion que dado un numero muestre el triangulo de pascal hasta ese numero
+<<>>=
+TRIANGULOPASCAL <- function(n) {
+    for(i in 0:(n-1)) {
+    s <- ""
+    for(k in 0:(n-i)) s <- paste(s, "  ", sep="")
+    # La funcion paste() une todos los vectores de caracteres que se le suministran y construyen una sola cadena de caracteres.
+    for(j in 0:i) {
+      s <- paste(s, sprintf("%3d ", choose(i, j)), sep="")
+    }
+    print(s)
+  }
+}
+TRIANGULOPASCAL(6)
+@
+Ejercicio # 2
+<<>>=
+med<-c(2,3,4,5,6,7,5)
+sort(med)
+median(med)
+@
+Ejercicio # 3
+<<>>=
+x<-c(1,2,3,4,5)
+y<-c(0,2,5,6)
+x
+@
+Ejercicio # 4
+<<>>=
+x<-c(1,2,3,4,5,6,7,8)
+sort(x)
+length(x)
+quantile(x)
+@
+
+
+
+
+\end{document}
